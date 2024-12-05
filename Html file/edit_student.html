@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <!--Bootstrap css cdn.-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Student-Registration</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Student Management System</a>
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{/students}">Student Management</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="row">
+
+    <div class="col-lg-6 col-md-6 col-sm-6  container justify-content-center card">
+
+        <div class="text-center" style="font-size:30px;">Update Student</div>
+
+        <div class="card-body"></div>
+
+        <form th:action="@{/students/edit/{id}(id=${student.id})}" th:object="${student}" method="post">
+
+            <div class="form-group">
+                <label> First Name </label>
+                <input type="text" name="firstName" placeholder="Enter first name" id="firstName" class="form-control" th:field="*{firstName}">
+            </div>
+
+            <div class="form-group">
+                <label> Last Name </label>
+                <input type="text" name="lastName" placeholder="Enter last name" id="lastName" class="form-control" th:field="*{lastName}">
+            </div>
+
+            <div class="form-group">
+                <label> Email </label>
+                <input type="email"  name="email" placeholder="Enter the email" id="email" class="form-control" th:field="*{email}">
+            </div>
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-success btn-sm mb-3">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
