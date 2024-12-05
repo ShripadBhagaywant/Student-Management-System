@@ -1,0 +1,7 @@
+Just create database.
+
+create database students;
+use students;
+create table students;
+show students;
+select * from students;
